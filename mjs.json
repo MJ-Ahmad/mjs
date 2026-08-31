@@ -1,0 +1,30 @@
+{
+  "project": "MJSovereign",
+  "title": "MJSovereign Ethical Governance & Finance",
+  "version": "1.0.0",
+  "status": "active",
+  "siteType": "static",
+  "language": "html-css-js",
+  "responsive": true,
+  "dashboard": {
+    "name": "DGD",
+    "title": "General Dashboard",
+    "enabled": true,
+    "password": "23542",
+    "accessMode": "local-gate"
+  },
+  "roadmap": {
+    "phases": [
+      "Discovery",
+      "Prototype",
+      "Pilot",
+      "Scale",
+      "Legacy"
+    ]
+  },
+  "meta": {
+    "owner": "MJ-Ahmad",
+    "repository": "mjs",
+    "lastUpdated": "2026-09-01"
+  }
+}

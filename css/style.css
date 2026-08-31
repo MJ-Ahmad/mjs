@@ -814,24 +814,73 @@ button {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+
+  .cta-band-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) {
+  .nav-wrap {
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: rgba(8, 15, 32, 0.96);
+    box-shadow: 0 22px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    border-radius: 12px;
+  }
+
+  .main-nav .btn-small {
+    justify-content: center;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  .button-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {
-  .nav {
-    flex-direction: column;
-    justify-content: center;
-    padding: 16px 0;
-  }
-
-  .menu {
-    justify-content: center;
-  }
-
   .stats-grid,
   .four-col,
   .three-col,
   .legacy-grid,
-  .roadmap-grid {
+  .roadmap-grid,
+  .footer-grid,
+  .sitemap-list,
+  .form-row {
     grid-template-columns: 1fr;
   }
 
@@ -841,5 +890,28 @@ button {
 
   .section {
     padding: 70px 0;
+  }
+
+  .site-header {
+    background: rgba(6, 12, 23, 0.9);
+  }
+
+  .brand {
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+  }
+
+  .panel-item {
+    grid-template-columns: 36px 1fr;
+  }
+
+  .panel-item small {
+    grid-column: 2;
+  }
+
+  .cta-band-inner,
+  .footer-bottom,
+  .nav-wrap {
+    gap: 14px;
   }
 }
