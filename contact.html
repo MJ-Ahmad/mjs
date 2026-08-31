@@ -41,13 +41,38 @@
       <section class="page-section">
         <div class="container contact-layout">
           <div class="contact-card">
-            <h3>General inquiries</h3>
-            <p><strong>Email:</strong> <a href="mailto:hello@mjsov.com">hello@mjsov.com</a></p>
-            <p><strong>Website:</strong> <a href="https://MJ-Ahmad.github.io/mjs/">https://MJ-Ahmad.github.io/mjs/</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/MJ-Ahmad">MJ-Ahmad</a></p>
+            <h3>Send a message</h3>
+            <form class="contact-form" data-form>
+              <div class="form-row">
+                <label class="form-field">
+                  <span>Name</span>
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label class="form-field">
+                  <span>Email</span>
+                  <input type="email" name="email" placeholder="you@example.com" required />
+                </label>
+              </div>
+              <label class="form-field">
+                <span>Subject</span>
+                <input type="text" name="subject" placeholder="Project inquiry" required />
+              </label>
+              <label class="form-field">
+                <span>Message</span>
+                <textarea name="message" rows="6" placeholder="Tell us about your idea, collaboration, or project..." required></textarea>
+              </label>
+              <button type="submit" class="btn form-submit">Send inquiry</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
           </div>
+
           <div class="contact-card accent-panel">
-            <h3>Partnerships</h3>
+            <h3>Connect directly</h3>
+            <div class="social-stack">
+              <a href="mailto:hello@mjsov.com" class="social-link big">Email</a>
+              <a href="https://github.com/MJ-Ahmad" target="_blank" rel="noreferrer" class="social-link big">GitHub</a>
+              <a href="https://MJ-Ahmad.github.io/mjs/" class="social-link big">Live site</a>
+            </div>
             <p>We welcome collaborations with mission-aligned institutions, public stakeholders, and ethical builders shaping the future of governance.</p>
           </div>
         </div>

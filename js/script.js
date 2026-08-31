@@ -31,4 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const contactForm = document.querySelector('[data-form]');
+  const formStatus = document.querySelector('.form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = (formData.get('name') || '').toString().trim();
+
+      if (formStatus) {
+        formStatus.textContent = name
+          ? `Thanks, ${name}. Your message has been prepared and is ready to send.`
+          : 'Thanks. Your message has been prepared and is ready to send.';
+      }
+
+      contactForm.reset();
+    });
+  }
 });
