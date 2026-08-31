@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const repoName = 'mjs';
-const isGithubPages = process.env.GITHUB_ACTIONS === 'true' || process.env.GITHUB_PAGES === 'true';
 
 const nextConfig = {
   output: 'export',
@@ -8,8 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isGithubPages ? `/${repoName}` : '',
-  assetPrefix: isGithubPages ? `https://MJ-Ahmad.github.io/${repoName}/` : '',
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
 };
 
 export default nextConfig;
