@@ -1,0 +1,13 @@
+{
+  "name": "MJSovereign",
+  "short_name": "MJS",
+  "description": "Ethical governance, finance, and sovereign digital systems.",
+  "start_url": "/mjs/",
+  "scope": "/mjs/",
+  "display": "standalone",
+  "background_color": "#07111d",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "/mjs/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
