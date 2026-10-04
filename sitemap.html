@@ -1,88 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Structure & Analytics Module | MJSovereign</title>
-    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="../../css/style.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="../../index.html"><span class="brand-mark">M</span><span>MJSOVEREIGN</span></a>
-        <div class="nav-actions">
-          <div class="lang-toggle" role="tablist" aria-label="Language selector">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <button class="lang-btn" data-lang="bn">BN</button>
-          </div>
-          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-        </div>
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="../../index.html">Home</a>
-          <a href="../../sitemap.html">Sitemap</a>
-          <a href="../executive-summary/index.html">Executive Summary</a>
-          <a href="../geographic-control-system/index.html">Geographic Control</a>
-          <a href="../technology-validity-security/index.html">Technology Security</a>
-        </nav>
-      </div>
-    </header>
+document.addEventListener('DOMContentLoaded', () => {
+  const year = document.getElementById('year');
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 
-    <main>
-      <section class="hero module-hero">
-        <div class="container narrow">
-          <p class="eyebrow">Module 04</p>
-          <h1>Structure &amp; Analytics</h1>
-          <p class="subtext">Identity, governance, geospatial, and analytics layers powering leadership development and institutional readiness.</p>
-        </div>
-      </section>
+  const navToggle = document.querySelector('.nav-toggle');
+  const mainNav = document.querySelector('.main-nav');
 
-      <section class="section">
-        <div class="container card-grid four-col">
-          <article class="module-card">
-            <h3>Identity Layer</h3>
-            <p>Verified human and institutional identities form the foundation of legitimacy and accountability.</p>
-          </article>
-          <article class="module-card">
-            <h3>Governance Layer</h3>
-            <p>Rules, voting structures, and policy pathways align leadership decisions with public accountability.</p>
-          </article>
-          <article class="module-card">
-            <h3>Geo-Grid Layer</h3>
-            <p>Spatial and jurisdictional mapping brings operational control into alignment with local realities.</p>
-          </article>
-          <article class="module-card">
-            <h3>Analytics Layer</h3>
-            <p>AI-assisted analysis supports rewards, promotions, and leadership development decisions.</p>
-          </article>
-        </div>
-      </section>
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
 
-      <section class="section alt">
-        <div class="container two-column-layout">
-          <div class="info-panel">
-            <h3>Election &amp; NGO Readiness</h3>
-            <p>Roadmaps are prepared for election monitoring, civil coordination, and NGO alignment with governance systems and public readiness standards.</p>
-          </div>
-          <div class="info-panel">
-            <h3>AI-driven strategic insight</h3>
-            <ul class="check-list">
-              <li>Recommend leadership promotion pathways.</li>
-              <li>Score performance, fairness, and field responsiveness.</li>
-              <li>Identify training and development priorities.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.lang || 'en';
+      if (window.mjsI18n && typeof window.mjsI18n.apply === 'function') {
+        window.mjsI18n.apply(lang);
+      }
+    });
+  });
 
-    <footer class="site-footer">
-      <div class="footer-bottom container">
-        <span>© <span id="year"></span> MJSovereign</span>
-      </div>
-    </footer>
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href');
+      const target = targetId ? document.querySelector(targetId) : null;
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (mainNav && mainNav.classList.contains('is-open')) {
+        mainNav.classList.remove('is-open');
+      }
+    });
+  });
 
-    <script src="../../js/i18n.js"></script>
-    <script src="../../js/script.js"></script>
-  </body>
-</html>
+  const contactForm = document.querySelector('[data-form]');
+  const formStatus = document.querySelector('.form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = (formData.get('name') || '').toString().trim();
+
+      if (formStatus) {
+        formStatus.textContent = name
+          ? `Thanks, ${name}. Your message has been prepared and is ready to send.`
+          : 'Thanks. Your message has been prepared and is ready to send.';
+      }
+
+      contactForm.reset();
+    });
+  }
+
+  const splash = document.getElementById('splash');
+  try {
+    const splashSeen = sessionStorage.getItem('mjs-splash-seen');
+    if (splash && !splashSeen) {
+      setTimeout(() => {
+        splash.classList.add('hidden');
+        sessionStorage.setItem('mjs-splash-seen', '1');
+      }, 900);
+    } else if (splash) {
+      splash.classList.add('hidden');
+    }
+  } catch (e) {
+    if (splash) splash.classList.add('hidden');
+  }
+
+  const savedLang = localStorage.getItem('mjs-lang') || 'en';
+  if (window.mjsI18n && typeof window.mjsI18n.apply === 'function') {
+    window.mjsI18n.apply(savedLang);
+  }
+});

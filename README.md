@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sitemap | MJSovereign</title>
     <meta name="description" content="Dynamic site map and project structure for the National Workforce Grid initiative." />
+    <meta name="theme-color" content="#071521" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="canonical" href="https://MJ-Ahmad.github.io/mjs/sitemap.html" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav-wrap">
         <a class="brand" href="index.html" aria-label="MJSovereign home">
-          <span class="brand-mark">M</span>
-          <span>MJSOVEREIGN</span>
+          <img src="assets/logo.svg" class="brand-img" alt="MJSovereign logo" width="42" height="42" />
+          <span class="brand-text">MJSOVEREIGN</span>
         </a>
 
         <div class="nav-actions">
@@ -55,15 +57,15 @@
                     <ul>
                       <li><span><a href="modules/executive-summary/index.html">Executive Summary Module</a></span></li>
                       <li><span><a href="modules/geographic-control-system/index.html">Geographic Control System</a></span></li>
-                      <li><span><a href="modules/technology-validity-security/index.html">Technology Validity & Security</a></span></li>
-                      <li><span><a href="modules/structure-analytics/index.html">Structure & Analytics</a></span></li>
+                      <li><span><a href="modules/technology-validity-security/index.html">Technology Validity &amp; Security</a></span></li>
+                      <li><span><a href="modules/structure-analytics/index.html">Structure &amp; Analytics</a></span></li>
                     </ul>
                   </li>
                   <li><span>System Map</span>
                     <ul>
-                      <li><span>Leadership & Governance</span></li>
+                      <li><span>Leadership &amp; Governance</span></li>
                       <li><span>Geo-Grid</span></li>
-                      <li><span>Identity & DID</span></li>
+                      <li><span>Identity &amp; DID</span></li>
                       <li><span>Analytics</span></li>
                     </ul>
                   </li>
@@ -74,8 +76,8 @@
                 <ul>
                   <li><span>National Workforce Grid</span></li>
                   <li><span>Responsible Leadership</span></li>
-                  <li><span>Public Trust & Accountability</span></li>
-                  <li><span>Technology & Security Architecture</span></li>
+                  <li><span>Public Trust &amp; Accountability</span></li>
+                  <li><span>Technology &amp; Security Architecture</span></li>
                 </ul>
               </li>
               <li><span>Operations</span>
@@ -88,7 +90,7 @@
                   <li><span>Neighborhoods</span></li>
                 </ul>
               </li>
-              <li><span>Governance & Data</span>
+              <li><span>Governance &amp; Data</span>
                 <ul>
                   <li><span>DID</span></li>
                   <li><span>Smart Contracts</span></li>
@@ -113,7 +115,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a class="brand footer-brand" href="index.html"><span class="brand-mark">M</span><span>MJSOVEREIGN</span></a>
+          <a class="brand footer-brand" href="index.html"><img src="assets/logo.svg" class="brand-img" alt="MJSovereign" width="40" height="40" /><span>MJSOVEREIGN</span></a>
           <p>Ethical governance and digital empowerment for a transparent future.</p>
         </div>
         <div>

@@ -1,90 +1,357 @@
-/* main stylesheet (updated with splash styles) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MJSovereign | National Workforce Grid</title>
+    <meta name="description" content="National Workforce Grid for Responsible Leadership and Technological Empowerment in Bangladesh." />
+    <meta name="theme-color" content="#071521" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/logo.svg" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="canonical" href="https://MJ-Ahmad.github.io/mjs/" />
+  </head>
+  <body>
+    <div id="splash" class="splash-overlay" aria-hidden="true">
+      <div class="splash-inner">
+        <img src="assets/splash.svg" alt="MJSovereign splash" />
+        <div class="splash-loading">Loading…</div>
+      </div>
+    </div>
 
-:root {
-  --bg: #071521;
-  --bg-soft: #0d1c2d;
-  --panel: rgba(14, 27, 39, 0.72);
-  --panel-strong: #0e2135;
-  --text: #edf7ff;
-  --muted: #a9c3db;
-  --line: rgba(168, 202, 255, 0.13);
-  --blue: #67d8ff;
-  --indigo: #7c8cff;
-  --emerald: #32d6a3;
-  --gold: #f8d66d;
-  --rose: #ff8ea8;
-  --shadow: rgba(6, 16, 27, 0.55);
-}
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="MJSovereign home">
+          <img src="assets/logo.svg" class="brand-img" alt="MJSovereign logo" width="42" height="42" />
+          <span class="brand-text">MJSOVEREIGN</span>
+        </a>
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; font-family: 'Inter', Arial, sans-serif; background: radial-gradient(circle at top left, rgba(124, 140, 255, 0.18), transparent 28%), radial-gradient(circle at bottom right, rgba(50, 214, 163, 0.14), transparent 22%), var(--bg); color: var(--text); line-height: 1.6; }
-img { max-width: 100%; display: block; }
-p, ul, li, h1, h2, h3, h4 { margin-top: 0; }
+        <div class="nav-actions">
+          <div class="lang-toggle" role="tablist" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="en" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="bn" aria-label="বাংলা">BN</button>
+          </div>
 
-/* header and nav */
-.site-header { position: sticky; top: 0; z-index: 30; backdrop-filter: blur(18px); background: rgba(7, 21, 33, 0.8); border-bottom: 1px solid var(--line); }
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 78px; gap: 18px; }
-.brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.12em; font-size: 0.95rem; }
-.brand-img { width: 42px; height: 42px; border-radius: 10px; }
-.brand-text { font-weight: 800; letter-spacing: 0.12em; }
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
 
-.nav-actions { display: flex; align-items: center; gap: 12px; }
-.lang-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 5px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); }
-.lang-btn { border: 0; background: transparent; color: var(--muted); border-radius: 999px; padding: 0.45rem 0.8rem; font-weight: 700; }
-.lang-btn.active { background: linear-gradient(135deg, var(--indigo), var(--emerald)); color: #081a21; }
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#modules" data-i18n="nav.modules">Modules</a>
+          <a href="#map" data-i18n="nav.map">Map</a>
+          <a href="#impact" data-i18n="nav.impact">Impact</a>
+          <a href="sitemap.html" data-i18n="nav.sitemap">Sitemap</a>
+          <a href="DGD/index.html" data-i18n="nav.dgd">DGD</a>
+          <a href="#launch" class="btn btn-small" data-i18n="nav.launch">Launch Initiative</a>
+        </nav>
+      </div>
+    </header>
 
-.main-nav { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 18px; color: var(--muted); font-size: 0.92rem; }
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="badge" data-i18n="hero.badge">National Workforce Grid</span>
+            <h1>
+              <span data-i18n="hero.line1">Responsible leadership</span>
+              <span class="highlight" data-i18n="hero.line2">for a digital Bangladesh</span>
+            </h1>
+            <p class="quote" data-i18n="hero.quote">A transparent, accountable, and technology-enabled civic architecture for the future of Bangladesh.</p>
+            <p class="subtext" data-i18n="hero.subtext">
+              Building a national workforce grid that connects leadership, governance, security, geography, and data into one accountable system for inclusive growth and public trust.
+            </p>
 
-.btn, .button { display: inline-flex; align-items: center; justify-content: center; padding: 0.82rem 1.4rem; border-radius: 999px; background: linear-gradient(90deg, var(--indigo), var(--emerald)); color: #071821; font-weight: 800; border: none; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 16px 20px rgba(124, 140, 255, 0.18); }
-.button-secondary { background: rgba(255,255,255,0.03); border: 1px solid var(--line); color: var(--text); box-shadow: none; }
-.btn-small { padding: 0.72rem 1rem; }
+            <div class="cta-row">
+              <a href="#launch" class="button" data-i18n="hero.cta1">Explore the framework</a>
+              <a href="#modules" class="button button-secondary" data-i18n="hero.cta2">View modules</a>
+              <a href="DGD/index.html" class="button button-secondary" data-i18n="hero.cta3">Open DGD</a>
+            </div>
 
-/* hero */
-.hero { padding: 76px 0 42px; }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 40px; }
-.badge { display: inline-flex; align-items: center; gap: 10px; padding: 0.7rem 1rem; border-radius: 999px; background: rgba(124, 140, 255, 0.12); border: 1px solid rgba(124, 140, 255, 0.4); color: #dfe9ff; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em; }
-.hero-copy h1 { margin: 22px 0 18px; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 0.96; letter-spacing: -0.06em; }
-.highlight { display: block; background: linear-gradient(90deg, #dfeeff, #7ad7ff, #93f0c6); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.subtext { margin-top: 18px; max-width: 640px; color: var(--muted); font-size: 1.04rem; }
-.cta-row { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
-.social-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, minmax(110px, 1fr)); gap: 14px; margin-top: 32px; max-width: 620px; }
+            <div class="social-row" aria-label="Project links">
+              <a href="https://github.com/MJ-Ahmad/mjs" target="_blank" rel="noreferrer" class="social-link">GitHub</a>
+              <a href="sitemap.html" class="social-link">Sitemap</a>
+              <a href="contact.html" class="social-link">Contact</a>
+            </div>
 
-/* panels */
-.panel-box { width: min(100%, 470px); padding: 22px; border-radius: 28px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); box-shadow: 0 30px 60px rgba(6, 16, 27, 0.5); }
-.panel-list { display: grid; gap: 12px; }
-.panel-item { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 12px; padding: 14px 12px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--line); }
+            <div class="stats-grid">
+              <div class="stat-card">
+                <strong>6</strong>
+                <span data-i18n="stats.levels">Governance levels</span>
+              </div>
+              <div class="stat-card">
+                <strong>∞</strong>
+                <span data-i18n="stats.accountability">Accountability loops</span>
+              </div>
+              <div class="stat-card">
+                <strong>4</strong>
+                <span data-i18n="stats.modules">Core modules</span>
+              </div>
+              <div class="stat-card">
+                <strong>1</strong>
+                <span data-i18n="stats.grid">National network</span>
+              </div>
+            </div>
+          </div>
 
-/* modules & cards */
-.section { padding: 100px 0; }
-.section.alt { background: rgba(12, 22, 31, 0.78); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.card-grid { display: grid; gap: 22px; }
-.four-col { grid-template-columns: repeat(4, minmax(220px, 1fr)); }
-.module-card { display: flex; flex-direction: column; gap: 14px; padding: 24px 22px; border-radius: 24px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); box-shadow: 0 12px 26px rgba(0,0,0,0.10); }
+          <div class="hero-panel">
+            <div class="panel-box">
+              <div class="panel-head">
+                <span data-i18n="panel.system">System overview</span>
+                <span class="status"><i></i> <span data-i18n="panel.active">Active</span></span>
+              </div>
 
-/* tree */
-.tree-panel { padding: 28px; border-radius: 28px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); overflow-x: auto; }
-.tree-root { display: inline-block; padding: 0.8rem 1.2rem; border-radius: 999px; background: linear-gradient(135deg, rgba(124,140,255,0.25), rgba(50,214,163,0.12)); border: 1px solid var(--line); font-weight: 800; margin-bottom: 18px; }
-.tree-list, .tree-list ul { list-style: none; margin: 0; padding-left: 14px; }
-.tree-list > li { position: relative; padding: 0 0 14px 10px; }
-.tree-list > li::before, .tree-list ul > li::before { content: ""; position: absolute; left: -12px; top: 0; bottom: 0; border-left: 1px solid rgba(160, 191, 240, 0.25); }
-.tree-list li span { display: inline-block; padding: 0.5rem 0.7rem; border-radius: 12px; background: rgba(255,255,255,0.02); border: 1px solid var(--line); color: #edf5ff; margin-top: 6px; }
+              <div class="panel-list">
+                <div class="panel-item">
+                  <div class="icon">◎</div>
+                  <span data-i18n="panel.identity">Identity layer</span>
+                  <small data-i18n="panel.verifiable">Verifiable</small>
+                </div>
+                <div class="panel-item">
+                  <div class="icon">▣</div>
+                  <span data-i18n="panel.geo">Geo-grid</span>
+                  <small data-i18n="panel.anchored">Anchored</small>
+                </div>
+                <div class="panel-item">
+                  <div class="icon">⇄</div>
+                  <span data-i18n="panel.smart">Smart contracts</span>
+                  <small data-i18n="panel.sync">Synced</small>
+                </div>
+                <div class="panel-item">
+                  <div class="icon">✦</div>
+                  <span data-i18n="panel.analytics">AI analytics</span>
+                  <small data-i18n="panel.ready">Ready</small>
+                </div>
+              </div>
 
-/* footer */
-.site-footer { border-top: 1px solid var(--line); background: rgba(8, 15, 23, 0.94); padding-top: 30px; }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 18px; }
-.footer-bottom { border-top: 1px solid var(--line); padding: 18px 0 26px; color: var(--muted); }
+              <div class="panel-footer">
+                <span data-i18n="panel.ledger">National Ledger</span>
+                <div class="mini-stats">
+                  <div>
+                    <strong>96%</strong>
+                    <small data-i18n="mini.trust">Trust signal</small>
+                  </div>
+                  <div>
+                    <strong>6</strong>
+                    <small data-i18n="mini.hierarchy">Hierarchy layers</small>
+                  </div>
+                  <div>
+                    <strong>24/7</strong>
+                    <small data-i18n="mini.monitoring">Monitoring</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* SPLASH overlay styles */
-.splash-overlay { position: fixed; inset: 0; display: grid; place-items: center; background: linear-gradient(180deg, rgba(7,21,33,0.98), rgba(7,21,33,0.92)); z-index: 80; transition: opacity 280ms ease, visibility 280ms ease; }
-.splash-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-.splash-inner { text-align: center; color: var(--muted); }
-.splash-inner img { width: min(420px, 78%); height: auto; display: block; margin: 0 auto 18px; }
-.splash-loading { font-weight: 700; color: #cfefff; opacity: 0.9; }
+      <section id="about" class="section">
+        <div class="container">
+          <p class="eyebrow" data-i18n="about.eyebrow">Project overview</p>
+          <h2 data-i18n="about.h2">National Workforce Grid for Responsible Leadership and Technological Empowerment in Bangladesh</h2>
+          <div class="two-column-layout compact">
+            <div class="info-panel">
+              <p data-i18n="about.p1">
+                This initiative frames a national civic and workforce infrastructure that blends geographic control, digital identity, governance intelligence, and transparent technology. It aims to create a trusted ecosystem where leadership is measurable, accountability is visible, and development decisions are rooted in data and ethics.
+              </p>
+              <p data-i18n="about.p2">
+                The project organizes Bangladesh's public coordination layers into a unified decision grid: divisions, districts, police stations, unions, wards, and neighborhoods. This structure supports real-time reporting, community oversight, secure identity verification, and better policy execution across the country.
+              </p>
+            </div>
+            <div class="info-panel accent-panel">
+              <h3 data-i18n="about.core">Core goal</h3>
+              <ul class="check-list">
+                <li data-i18n="about.item1">Empower responsible leadership and ethical governance.</li>
+                <li data-i18n="about.item2">Create secure, geo-aware workforce accountability.</li>
+                <li data-i18n="about.item3">Use DID, smart contracts, and AI for trust and fairness.</li>
+                <li data-i18n="about.item4">Strengthen public readiness for elections, NGOs, and strategic planning.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-/* responsive */
-@media (max-width: 980px) { .hero-grid, .two-column-layout, .impact-grid, .four-col { grid-template-columns: 1fr 1fr; } .hero-grid, .impact-grid, .two-column-layout { grid-template-columns: 1fr; } .cta-band-inner { flex-direction: column; align-items: flex-start; } }
-@media (max-width: 760px) { .nav-wrap { position: relative; } .nav-toggle { display: block; } .main-nav { position: absolute; top: calc(100% + 10px); left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 8px; padding: 14px; border-radius: 18px; border: 1px solid var(--line); background: rgba(7, 21, 33, 0.97); box-shadow: 0 24px 40px rgba(0, 0, 0, 0.22); } .main-nav.is-open { display: flex; } .main-nav a { width: 100%; padding: 0.7rem 0.8rem; border-radius: 12px; } .stats-grid, .four-col, .footer-grid { grid-template-columns: 1fr; } .cta-row { flex-direction: column; align-items: stretch; } .button, .btn { width: 100%; } }
-@media (max-width: 640px) { .hero { padding-top: 54px; } .section { padding: 72px 0; } .brand { letter-spacing: 0.08em; font-size: 0.8rem; } }
+      <section id="modules" class="section alt">
+        <div class="container">
+          <p class="eyebrow green" data-i18n="modules.eyebrow">Core project modules</p>
+          <h2 data-i18n="modules.h2">Four major modules driving the national framework</h2>
+
+          <div class="card-grid four-col">
+            <article class="module-card">
+              <span class="module-tag">01</span>
+              <h3 data-i18n="module1.title">Executive Summary Module</h3>
+              <p data-i18n="module1.summary">Vision, objectives, rationale, and strategic logic for a digitally empowered public governance model.</p>
+              <ul>
+                <li data-i18n="module1.item1">Vision, purpose, and rationale</li>
+                <li data-i18n="module1.item2">DID, Geo-Grid, and Smart Contracts</li>
+                <li data-i18n="module1.item3">Responsible leadership model</li>
+              </ul>
+              <a href="modules/executive-summary/index.html" data-i18n="module.read">Open module</a>
+            </article>
+
+            <article class="module-card">
+              <span class="module-tag">02</span>
+              <h3 data-i18n="module2.title">Geographic Control System</h3>
+              <p data-i18n="module2.summary">Hierarchical control system linking divisions, districts, police stations, unions, wards, and neighborhoods.</p>
+              <ul>
+                <li data-i18n="module2.item1">Division-to-neighborhood mapping</li>
+                <li data-i18n="module2.item2">Zone coordinator and reporting node</li>
+                <li data-i18n="module2.item3">Workforce ledger and smart contract operations</li>
+              </ul>
+              <a href="modules/geographic-control-system/index.html" data-i18n="module.read">Open module</a>
+            </article>
+
+            <article class="module-card">
+              <span class="module-tag">03</span>
+              <h3 data-i18n="module3.title">Technological Validity &amp; Security</h3>
+              <p data-i18n="module3.summary">Blockchain DID, role-based access, quorum rules, secure proposal lifecycle, and real-time geo-data integrations.</p>
+              <ul>
+                <li data-i18n="module3.item1">IPFS anchored DID architecture</li>
+                <li data-i18n="module3.item2">Role-based access and governance quorum</li>
+                <li data-i18n="module3.item3">Transport and logistics overlays</li>
+              </ul>
+              <a href="modules/technology-validity-security/index.html" data-i18n="module.read">Open module</a>
+            </article>
+
+            <article class="module-card">
+              <span class="module-tag">04</span>
+              <h3 data-i18n="module4.title">Structure &amp; Analytics</h3>
+              <p data-i18n="module4.summary">Identity, governance, analytics, and election-readiness layers with AI-enabled leadership development insights.</p>
+              <ul>
+                <li data-i18n="module4.item1">Identity, governance, and analytics layers</li>
+                <li data-i18n="module4.item2">Election and NGO readiness framework</li>
+                <li data-i18n="module4.item3">AI-driven reward and promotion analysis</li>
+              </ul>
+              <a href="modules/structure-analytics/index.html" data-i18n="module.read">Open module</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="map" class="section">
+        <div class="container">
+          <p class="eyebrow cyan" data-i18n="map.eyebrow">System map</p>
+          <h2 data-i18n="map.h2">Hierarchical structure and decision flow</h2>
+
+          <div class="tree-panel">
+            <div class="tree-root">National Workforce Grid</div>
+            <ul class="tree-list">
+              <li>
+                <span>Leadership &amp; Governance</span>
+                <ul>
+                  <li><span>Executive Summary</span></li>
+                  <li><span>Strategic Objectives</span></li>
+                  <li><span>Policy &amp; Compliance</span></li>
+                </ul>
+              </li>
+              <li>
+                <span>Geographic Control System</span>
+                <ul>
+                  <li><span>Division</span></li>
+                  <li><span>District</span></li>
+                  <li><span>Police Station</span></li>
+                  <li><span>Union</span></li>
+                  <li><span>Ward</span></li>
+                  <li><span>Neighborhood</span></li>
+                </ul>
+              </li>
+              <li>
+                <span>Technological Validity &amp; Security</span>
+                <ul>
+                  <li><span>DID</span></li>
+                  <li><span>IPFS Anchoring</span></li>
+                  <li><span>Smart Contracts</span></li>
+                  <li><span>Quorum Governance</span></li>
+                </ul>
+              </li>
+              <li>
+                <span>Structure &amp; Analytics</span>
+                <ul>
+                  <li><span>Identity Layer</span></li>
+                  <li><span>Governance Layer</span></li>
+                  <li><span>Geo-Grid Layer</span></li>
+                  <li><span>Analytics Layer</span></li>
+                  <li><span>Election / NGO Readiness</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact" class="section highlight-band">
+        <div class="container impact-grid">
+          <div>
+            <p class="eyebrow yellow" data-i18n="impact.eyebrow">Expected outcome</p>
+            <h2 data-i18n="impact.h2">A professional, bilingual, and scalable national project architecture</h2>
+          </div>
+          <div class="impact-list">
+            <div class="impact-item">
+              <strong>01</strong>
+              <span data-i18n="impact.item1">Clear site navigation and a dynamic tree-based map.</span>
+            </div>
+            <div class="impact-item">
+              <strong>02</strong>
+              <span data-i18n="impact.item2">Well-structured development modules for ongoing delivery.</span>
+            </div>
+            <div class="impact-item">
+              <strong>03</strong>
+              <span data-i18n="impact.item3">A scalable design ready for governance, security, and analytics expansion.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="launch" class="cta-band">
+        <div class="container cta-band-inner">
+          <div>
+            <p class="eyebrow" data-i18n="launch.eyebrow">Launch framework</p>
+            <h2 data-i18n="launch.h2">Build ethical systems that strengthen trust, accountability, and national progress.</h2>
+          </div>
+          <a href="sitemap.html" class="btn" data-i18n="launch.cta">Open site map</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html"><img src="assets/logo.svg" class="brand-img" alt="MJSovereign" width="40" height="40" /><span>MJSOVEREIGN</span></a>
+          <p data-i18n="footer.tag">Ethical governance and digital empowerment for a transparent future.</p>
+        </div>
+        <div>
+          <h4 data-i18n="footer.explore">Explore</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#modules" data-i18n="nav.modules">Modules</a></li>
+            <li><a href="sitemap.html" data-i18n="nav.sitemap">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.resources">Resources</h4>
+          <ul>
+            <li><a href="DGD/index.html" data-i18n="nav.dgd">DGD</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="robots.txt">Robots</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer.connect">Connect</h4>
+          <ul>
+            <li><a href="mailto:hello@mjsov.com">hello@mjsov.com</a></li>
+            <li><a href="https://github.com/MJ-Ahmad">GitHub</a></li>
+            <li><a href="https://MJ-Ahmad.github.io/mjs/">Live site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom container">
+        <span>© <span id="year"></span> MJSovereign</span>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
