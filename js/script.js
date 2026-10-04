@@ -14,18 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const navLinks = document.querySelectorAll('a[href^="#"]');
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.lang || 'en';
+      if (window.mjsI18n && typeof window.mjsI18n.apply === 'function') {
+        window.mjsI18n.apply(lang);
+      }
+    });
+  });
 
+  const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetId = link.getAttribute('href');
       const target = targetId ? document.querySelector(targetId) : null;
-
       if (!target) return;
-
       event.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
       if (mainNav && mainNav.classList.contains('is-open')) {
         mainNav.classList.remove('is-open');
       }
@@ -49,5 +54,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
       contactForm.reset();
     });
+  }
+
+  // Splash overlay handling
+  const splash = document.getElementById('splash');
+  try {
+    const splashSeen = sessionStorage.getItem('mjs-splash-seen');
+    if (splash && !splashSeen) {
+      // show splash for 900ms then hide
+      setTimeout(() => {
+        splash.classList.add('hidden');
+        sessionStorage.setItem('mjs-splash-seen', '1');
+      }, 900);
+    } else if (splash) {
+      splash.classList.add('hidden');
+    }
+  } catch (e) {
+    if (splash) splash.classList.add('hidden');
+  }
+
+  const savedLang = localStorage.getItem('mjs-lang') || 'en';
+  if (window.mjsI18n && typeof window.mjsI18n.apply === 'function') {
+    window.mjsI18n.apply(savedLang);
   }
 });
